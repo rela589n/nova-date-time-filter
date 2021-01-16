@@ -2,43 +2,93 @@
 
 namespace Rela589n\NovaDateTimeFilter;
 
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Http\Request;
-use Laravel\Nova\Filters\DateFilter;
+use Illuminate\Support\Carbon;
 use Laravel\Nova\Filters\Filter;
 
 class NovaDateTimeFilter extends Filter
 {
-    /**
-     * The filter's component.
-     *
-     * @var string
-     */
+    /** @var string */
     public $component = 'nova-date-time-filter';
 
-    /**
-     * Set the first day of the week.
-     *
-     * @param  int  $day
-     * @return $this
-     */
-    public function firstDayOfWeek($day)
+    protected string $column;
+
+    public function __construct(string $column = 'created_at')
     {
-        return $this->withMeta([__FUNCTION__ => $day]);
+        $this->column = $column;
+    }
+
+    public function firstDayOfWeek($value)
+    {
+        $this->withMeta(['pickerFirstDayOfWeek' => $value]);
+    }
+
+    public function placeholder($value)
+    {
+        $this->withMeta(['placeholder' => $value]);
+    }
+
+    public function format($value)
+    {
+        $this->withMeta(['pickerFormat' => $value]);
+    }
+
+    public function displayFormat($value)
+    {
+        $this->withMeta(['pickerDisplayFormat' => $value]);
+    }
+
+    public function defaultHour($value)
+    {
+        $this->withMeta(['pickerDefaultHour' => $value]);
+    }
+
+    public function defaultMinute($value)
+    {
+        $this->withMeta(['pickerDefaultMinute' => $value]);
+    }
+
+    public function defaultSeconds($value)
+    {
+        $this->withMeta(['pickerDefaultSeconds' => $value]);
+    }
+
+    public function twelveHourTime($value)
+    {
+        $this->withMeta(['pickerTwelveHourTime' => $value]);
+    }
+
+    public function enableTime($value)
+    {
+        $this->withMeta(['pickerEnableTime' => $value]);
+    }
+
+    public function enableSeconds($value)
+    {
+        $this->withMeta(['pickerEnableSeconds' => $value]);
     }
 
     /**
-     * Get the filter's available options.
+     * @param  Request  $request
+     * @param  EloquentBuilder  $query
+     * @param  string  $value
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @return EloquentBuilder
      */
-    public function options(Request $request)
-    {
-        //
-    }
-
     public function apply(Request $request, $query, $value)
     {
-        // TODO: Implement apply() method.
+        $dateTime = Carbon::parse($value);
+
+        return $query->whereDate($this->column, $dateTime);
+    }
+
+    public function key(): string
+    {
+        return static::class.$this->column;
+    }
+
+    public function options(Request $request)
+    {
     }
 }
