@@ -1,13 +1,14 @@
 {
     "name": "rela589n/nova-date-time-filter",
-    "description": "A Laravel Nova filter.",
+    "description": "This package is more customizable alternative of default nova's date filter",
+    "license": "MIT",
+    "type": "library",
     "keywords": [
         "laravel",
         "nova"
     ],
-    "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": "^7.4|^8"
     },
     "autoload": {
         "psr-4": {
@@ -24,6 +25,13 @@
     "config": {
         "sort-packages": true
     },
+    "authors": [
+        {
+            "name": "rela589n",
+            "email": "zsidelnik@gmail.com"
+        }
+    ],
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "version": "1.0.0"
 }
