@@ -17,6 +17,9 @@ class NovaDateTimeFilter extends Filter
     public function __construct(string $column = 'created_at')
     {
         $this->column = $column;
+
+        $this->enableTime(true);
+        $this->enableSeconds(true);
     }
 
     public function firstDayOfWeek($value)
