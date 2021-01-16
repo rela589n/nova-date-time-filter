@@ -76,7 +76,7 @@ export default {
         },
 
         placeholder() {
-            return this.filter.placeholder || moment().format(this.format)
+            return this.filter.placeholder || moment().format('YYYY-MM-DD HH:mm:ss')
         },
 
         pickerFormat() {
@@ -100,15 +100,15 @@ export default {
         },
 
         pickerTwelveHourTime() {
-            return this.filter.pickerTwelveHourTime;
+            return !!this.filter.pickerTwelveHourTime;
         },
 
         pickerEnableTime() {
-            return this.filter.pickerEnableTime;
+            return !!this.filter.pickerEnableTime;
         },
 
         pickerEnableSeconds() {
-            return this.filter.pickerEnableSeconds;
+            return !!this.filter.pickerEnableSeconds;
         }
     },
 }
