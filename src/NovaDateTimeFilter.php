@@ -22,54 +22,54 @@ class NovaDateTimeFilter extends Filter
         $this->enableSeconds(true);
     }
 
-    public function firstDayOfWeek($value)
+    public function firstDayOfWeek($value): self
     {
-        $this->withMeta(['pickerFirstDayOfWeek' => $value]);
+        return $this->withMeta(['pickerFirstDayOfWeek' => $value]);
     }
 
-    public function placeholder($value)
+    public function placeholder($value): self
     {
-        $this->withMeta(['placeholder' => $value]);
+        return $this->withMeta(['placeholder' => $value]);
     }
 
-    public function format($value)
+    public function format($value): self
     {
-        $this->withMeta(['pickerFormat' => $value]);
+        return $this->withMeta(['pickerFormat' => $value]);
     }
 
-    public function displayFormat($value)
+    public function displayFormat($value): self
     {
-        $this->withMeta(['pickerDisplayFormat' => $value]);
+        return $this->withMeta(['pickerDisplayFormat' => $value]);
     }
 
-    public function defaultHour($value)
+    public function defaultHour($value): self
     {
-        $this->withMeta(['pickerDefaultHour' => $value]);
+        return $this->withMeta(['pickerDefaultHour' => $value]);
     }
 
-    public function defaultMinute($value)
+    public function defaultMinute($value): self
     {
-        $this->withMeta(['pickerDefaultMinute' => $value]);
+        return $this->withMeta(['pickerDefaultMinute' => $value]);
     }
 
-    public function defaultSeconds($value)
+    public function defaultSeconds($value): self
     {
-        $this->withMeta(['pickerDefaultSeconds' => $value]);
+        return $this->withMeta(['pickerDefaultSeconds' => $value]);
     }
 
-    public function twelveHourTime($value)
+    public function twelveHourTime($value): self
     {
-        $this->withMeta(['pickerTwelveHourTime' => $value]);
+        return $this->withMeta(['pickerTwelveHourTime' => $value]);
     }
 
-    public function enableTime($value)
+    public function enableTime($value): self
     {
-        $this->withMeta(['pickerEnableTime' => $value]);
+        return $this->withMeta(['pickerEnableTime' => $value]);
     }
 
-    public function enableSeconds($value)
+    public function enableSeconds($value): self
     {
-        $this->withMeta(['pickerEnableSeconds' => $value]);
+        return $this->withMeta(['pickerEnableSeconds' => $value]);
     }
 
     /**
